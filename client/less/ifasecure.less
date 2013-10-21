@@ -1,0 +1,109 @@
+@bootstrapPath:   "../../bower_modules/bootstrap/less/";
+
+// Core variables and mixins
+@import "@{bootstrapPath}/variables.less";
+//Here is where we override variables for our specific project:
+@import "variables-custom.less";
+
+@import "@{bootstrapPath}/mixins.less";
+
+// Reset
+@import "@{bootstrapPath}/normalize.less";
+@import "@{bootstrapPath}/print.less";
+
+// Core CSS
+@import "@{bootstrapPath}/scaffolding.less";
+@import "@{bootstrapPath}/type.less";
+@import "@{bootstrapPath}/code.less";
+@import "@{bootstrapPath}/grid.less";
+@import "@{bootstrapPath}/tables.less";
+@import "@{bootstrapPath}/forms.less";
+@import "@{bootstrapPath}/buttons.less";
+
+// Components
+@import "@{bootstrapPath}/component-animations.less";
+@import "@{bootstrapPath}/glyphicons.less";
+@import "@{bootstrapPath}/dropdowns.less";
+@import "@{bootstrapPath}/button-groups.less";
+@import "@{bootstrapPath}/input-groups.less";
+@import "@{bootstrapPath}/navs.less";
+@import "@{bootstrapPath}/navbar.less";
+@import "@{bootstrapPath}/breadcrumbs.less";
+@import "@{bootstrapPath}/pagination.less";
+@import "@{bootstrapPath}/pager.less";
+@import "@{bootstrapPath}/labels.less";
+@import "@{bootstrapPath}/badges.less";
+@import "@{bootstrapPath}/jumbotron.less";
+@import "@{bootstrapPath}/thumbnails.less";
+@import "@{bootstrapPath}/alerts.less";
+@import "@{bootstrapPath}/progress-bars.less";
+@import "@{bootstrapPath}/media.less";
+@import "@{bootstrapPath}/list-group.less";
+@import "@{bootstrapPath}/panels.less";
+@import "@{bootstrapPath}/wells.less";
+@import "@{bootstrapPath}/close.less";
+
+// Components w/ JavaScript
+@import "@{bootstrapPath}/modals.less";
+@import "@{bootstrapPath}/tooltip.less";
+@import "@{bootstrapPath}/popovers.less";
+@import "@{bootstrapPath}/carousel.less";
+
+// Utility classes
+@import "@{bootstrapPath}/utilities.less";
+@import "@{bootstrapPath}/responsive-utilities.less";
+
+
+body{
+  padding-top: 100px;
+}
+
+.backgrounds-red-yellow {
+  position: relative;
+  z-index: 9;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  background: #921831;
+}
+
+.backgrounds-red-yellow:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top:40%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #F9B233;
+}
+
+.backgrounds   {
+  position: relative;
+  z-index: 9;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  background: #921831;
+}
+
+.backgrounds-red-blue:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top:40%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #F9B233;
+}
+
+
+
+.banner{
+  color:#fff;
+  font-size:0.8em;
+}
+
+.banner-art{
+  position: absolute;
+  top: 30px;
+}

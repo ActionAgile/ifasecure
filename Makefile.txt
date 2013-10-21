@@ -1,0 +1,13 @@
+init:
+  npm install grunt-cli -g
+  npm install bower -g
+  npm install
+  bower install
+  grunt
+push:
+  grunt
+	scp -r ./bootstrap-3.0.0/dist/css ifasecure:/var/www/ifasecure/
+	scp -r ./bootstrap-3.0.0/dist/js ifasecure:/var/www/ifasecure/
+	scp -r ./bootstrap-3.0.0/dist/fonts ifasecure:/var/www/ifasecure/
+	scp -r ./img ifasecure:/var/www/ifasecure/
+	scp index.html ifasecure:/var/www/ifasecure/
