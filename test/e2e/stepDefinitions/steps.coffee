@@ -20,3 +20,17 @@ module.exports = ->
           cb()
       , () ->
         callback()
+
+  @Then /^I should see an emphasised pricing option$/, (callback) ->
+    @browser.findElements(@By.css ".pricing-option-emph").then (elem) =>
+      @expect(elem.length).to.equal 1
+      callback()
+
+  @Then /^it should have a buy button$/, (callback) ->
+    @browser.findElements(@By.css ".pricing-option-emph").then (options) =>
+      @async.each options, (option, cb) =>
+        option.isElementPresent(@By.css ".btn-primary").then (isPresent) =>
+          @expect(isPresent).to.be.true
+          cb()
+      , () ->
+        callback()
