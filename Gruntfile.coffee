@@ -10,6 +10,12 @@ module.exports = (grunt) ->
           base: 'bin/client'
           hostname: '*'
           keepalive: true
+      testServer:
+        options:
+          port: 9001
+          base: 'bin/client'
+          hostname: '*'
+          keepalive: false
     less:
       styles:
         dest: 'bin/client/css/ifasecure.css'
@@ -75,9 +81,11 @@ module.exports = (grunt) ->
       test:
         src: '.env'
 
-        # upload:
-        #   src: 'bin/client/index.html'
-        #   dest: 'index.html'
+    cucumberjs:
+      e2e:
+        src: 'test/e2e'
+        options:
+          format: "pretty"
 
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-contrib-less'
@@ -85,6 +93,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-env'
   grunt.loadNpmTasks 'grunt-s3'
+  grunt.loadNpmTasks 'grunt-cucumber'
 
   grunt.registerTask 'default', [
     'clean:reset'
@@ -101,4 +110,10 @@ module.exports = (grunt) ->
     'default'
     'env:test'
     's3:test'
+  ]
+
+  grunt.registerTask 'test', [
+    'default'
+    'connect:testServer'
+    'cucumberjs:e2e'
   ]
