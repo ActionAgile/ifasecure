@@ -1,6 +1,8 @@
 assert = require 'assert'
 webdriver = require 'selenium-webdriver'
 expect = require('chai').expect
+async = require 'async'
+
 worldDefinition = () ->
 
   driver = null
@@ -11,6 +13,7 @@ worldDefinition = () ->
       @By = webdriver.By
       @assert = assert
       @expect = expect
+      @async = async
       callback()
 
   capabilities = webdriver.Capabilities.firefox()

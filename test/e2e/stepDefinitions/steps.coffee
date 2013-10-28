@@ -8,3 +8,15 @@ module.exports = ->
     @browser.findElements(@By.css ".pricing-option").then (elem) =>
       @expect(elem.length).to.equal 3
       callback()
+
+  @When /^I see each of the pricing options$/, (callback) ->
+    callback()
+
+  @Then /^they should each have a buy button$/, (callback) ->
+    @browser.findElements(@By.css ".pricing-option").then (options) =>
+      @async.each options, (option, cb) =>
+        option.isElementPresent(@By.css ".btn-primary").then (isPresent) =>
+          @expect(isPresent).to.be.true
+          cb()
+      , () ->
+        callback()
