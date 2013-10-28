@@ -15,11 +15,16 @@
     <![endif]-->
 
     <!-- styles -->
-    <link rel="stylesheet" type="text/css" href="/css/ifasecure.css">
+    <% if (config.environment === 'dev') { %>
+        <link rel="stylesheet" href="/css/styles.css" />
+    <% } else { %>
+        <link rel="stylesheet" href="/css/styles.min.css?_=v<%= config.uniqueVersion() %>" />
+    <% } %>
   </head>
+  <body ng-controller="mainController">
 <!-- NAVBAR
 ================================================== -->
-  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <a class="brand" href="#">
         <i class="logo pull-left">
             <img src="/img/w_logo.png" class="img-responsive">
@@ -36,9 +41,6 @@
         </div>
         <div class="collapse navbar-collapse pull-right">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="survey.html">Survey</a></li>
-            <li><a href="#features">Features</a></li>
             <li><a href="#signup">Sign Up</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -79,7 +81,7 @@
           <img src="http://placehold.it/640x300" class="img-responsive">
         </div>
       </div>
-    
+    {{message}}
       <div class="row text-center jumbo-row">
         <div class="col-md-3 pricing-option">
           <h4>Small</h4>
@@ -170,7 +172,13 @@
     </div><!-- /.modal -->
 
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/script.js"></script>
-    <script src="//cdn.optimizely.com/js/338769085.js"></script>
+    <% if (config.environment === 'dev') { %>
+        <script data-main="/js/main.js" src="/js/libs/require.js"></script>
+    <% } else { %>
+        <script src="/js/scripts.min.js?_=v<%= config.uniqueVersion() %>"></script>
+    <% } %>
+    <% if (config.environment === 'prod') { %>
+        <script src="//cdn.optimizely.com/js/338769085.js"></script>
+    <% } %>
   </body>
 </html>
