@@ -97,18 +97,20 @@ body{
 }
 
 .pricing-option {
-  background: red;
-  margin: 15px 0px 15px 0px;
+  margin: 15px -1px 15px 0px;
   padding: 15px;
+  border-radius: 4px;
+  border: 1px solid gray;
+  min-height: 350px;
 }
 
 .pricing-option-emph {
-  background: blue;
   padding: 15px;
-}
-
-.pricing-option span {
-  color: yellow;
+  -webkit-box-shadow: #aaa 4px 2px 5px,#aaa -4px 2px 5px;
+  -moz-box-shadow: #aaa 4px 2px 5px,#aaa -4px 2px 5px;
+  box-shadow: #aaa 4px 2px 5px,#aaa -4px 2px 5px;
+  border-radius: 4px;
+  border: 1px solid gray;
 }
 
 ul.unstyled {
@@ -116,6 +118,19 @@ ul.unstyled {
   list-style: none;
   padding: 0px;
 }
+
+.pricing-row {
+  margin: 0px;
+}
+.pricing-option li {
+  margin-bottom: 8px;
+}
+
+.pricing-option-emph li {
+  margin-bottom: 8px;
+  font-size: 1.2em;
+}
+
 
 .banner{
   color:#fff;
