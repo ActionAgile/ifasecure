@@ -1,7 +1,7 @@
 module.exports = ->
 
   @Given /^I am on the homepage$/, (callback) ->
-    @browser.get('http://localhost:9001').then ->
+    @browser.get('http://localhost:9002').then ->
       callback()
 
   @Then /^I should see a pricing grid$/, (callback) ->
@@ -33,4 +33,27 @@ module.exports = ->
           @expect(isPresent).to.be.true
           cb()
       , () ->
+        callback()
+
+
+  @When /^I click for a free audit$/, (callback) ->
+    @browser.findElement(@By.css '.free-audit-button').click()
+    callback()
+
+  @Then /^I should see a contact detail form$/, (callback) ->
+    @browser.findElement(@By.id 'auditModal').isDisplayed()
+    .then (isDisplayed) =>
+      @expect(isDisplayed).to.be.true
+      callback()
+
+  @Then /^I should not see a contact detail form$/, (callback) ->
+    @browser.findElement(@By.id 'auditModal').isDisplayed()
+    .then (isDisplayed) =>
+      @expect(isDisplayed).to.be.false
+      callback()
+
+  @Then /^I should be able to enter my (.*)$/, (field, callback) ->
+    @browser.findElement(@By.id 'auditModal').then (auditModal) =>
+      auditModal.isElementPresent(@By.name field).then (isPresent) =>
+        @expect(isPresent).to.be.true
         callback()

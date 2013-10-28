@@ -12,10 +12,17 @@ module.exports = (grunt) ->
           keepalive: true
       testServer:
         options:
+          port: 9002
+          base: 'bin/client'
+          hostname: '*'
+          keepalive: false
+      devServer:
+        options:
           port: 9001
           base: 'bin/client'
           hostname: '*'
           keepalive: false
+
     less:
       styles:
         dest: 'bin/client/css/ifasecure.css'
@@ -47,6 +54,16 @@ module.exports = (grunt) ->
         dest: 'bin/client/'
         src: 'index.html'
 
+    concat:
+      bootstrap:
+        src: [
+          'bower_modules/jquery/jquery.js'
+          'bower_modules/bootstrap/js/transition.js'
+          'bower_modules/bootstrap/js/collapse.js'
+          'bower_modules/bootstrap/js/dropdown.js'
+          'bower_modules/bootstrap/js/modal.js'
+        ]
+        dest: 'bin/client/js/script.js'
     s3:
       options:
         access: 'public-read'
@@ -76,6 +93,13 @@ module.exports = (grunt) ->
             dest: '/img/'
           }
         ]
+    
+    watch:
+      options:
+        livereload: true
+      dev:
+        files: ['client/**/*']
+        tasks: ['default']
 
     env:
       test:
@@ -91,6 +115,8 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-env'
   grunt.loadNpmTasks 'grunt-s3'
   grunt.loadNpmTasks 'grunt-cucumber'
@@ -98,6 +124,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'clean:reset'
     'copy'
+    'concat'
     'less:styles'
   ]
   
@@ -116,4 +143,10 @@ module.exports = (grunt) ->
     'default'
     'connect:testServer'
     'cucumberjs:e2e'
+  ]
+
+  grunt.registerTask 'dev', [
+    'default'
+    'connect:devServer'
+    'watch'
   ]

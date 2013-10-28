@@ -19,7 +19,7 @@
   </head>
 <!-- NAVBAR
 ================================================== -->
-  <div class="navbar navbar-inverse navbar-static-top">
+  <div class="navbar navbar-inverse navbar-fixed-top">
       <a class="brand" href="#">
         <i class="logo pull-left">
             <img src="/img/w_logo.png" class="img-responsive">
@@ -46,7 +46,6 @@
     </div>
 
     <div class="container">
-
       <!-- Jumbotron -->
       <div class="jumbotron backgrounds-red-yellow">
         <div class="row">
@@ -58,77 +57,120 @@
           <div class="col-md-4">
             <h2><strong>Simple.</strong></h2>
             <p>Feel secure in the knowlege that you won't be exposed to significant fines for non compliance by using IFA Secure.</p>
-            <p><a class="btn btn-primary btn-lg">Click here for a FREE Audit</a></p>
+            <p>    <a data-toggle="modal" href="#auditModal" class="btn btn-primary btn-lg free-audit-button">Click here for a FREE Audit</a></p>
           </div>
           <div class="col-md-8">
             <!--<p class="pull-right">SME's face data security fines of up to <strong>&pound;500,000</strong>.</p>-->
           </div>
         </div>
       </div>
-
-    <div class="row text-center pricing-row">
-      <div class="col-md-3 pricing-option">
-        <h4>Small</h4>
-        <h4>£15 / Month</h4>
-        <span>For One Person Teams</span>
-        <hr/>
-        <ul class="unstyled">
-          <li>Up to 5GB Storage</li>
-          <li>Unlimited Clients</li>
-          <li>Unlimited Documents</li>
-          <li>Full Encryption</li>
-        </ul>
-        <button class="btn btn-primary">Choose Plan</button>
+    
+      <div class="row jumbo-row">
+        <div class="visible-lg">
+          <img src="http://placehold.it/1140x300">
+        </div>
+        <div class="visible-md">
+          <img src="http://placehold.it/940x300">
+        </div>
+        <div class="visible-sm">
+          <img src="http://placehold.it/720x300">
+        </div>
+        <div class="visible-xs">
+          <img src="http://placehold.it/640x300" class="img-responsive">
+        </div>
       </div>
-      <div class="col-md-3 pricing-option">
-        <h4>Premium</h4>
-        <h4>£30 / Month</h4>
-        <span>2-5 People Teams</span>
-        <hr/>
-        <ul class="unstyled">
-          <li>Up to 10GB Storage</li>
-          <li>Unlimited Clients</li>
-          <li>Unlimited Documents</li>
-          <li>Full Encryption</li>
-        </ul>
-        <button class="btn btn-primary">Choose Plan</button>
+    
+      <div class="row text-center jumbo-row">
+        <div class="col-md-3 pricing-option">
+          <h4>Small</h4>
+          <h4>£15 / Month</h4>
+          <span>For One Person Teams</span>
+          <hr/>
+          <ul class="unstyled">
+            <li>Up to 5GB Storage</li>
+            <li>Unlimited Clients</li>
+            <li>Unlimited Documents</li>
+            <li>Full Encryption</li>
+          </ul>
+          <button class="btn btn-primary">Choose Plan</button>
+        </div>
+        <div class="col-md-3 pricing-option">
+          <h4>Premium</h4>
+          <h4>£30 / Month</h4>
+          <span>2-5 People Teams</span>
+          <hr/>
+          <ul class="unstyled">
+            <li>Up to 10GB Storage</li>
+            <li>Unlimited Clients</li>
+            <li>Unlimited Documents</li>
+            <li>Full Encryption</li>
+          </ul>
+          <button class="btn btn-primary">Choose Plan</button>
+        </div>
+        <div class="col-md-3 pricing-option-emph">
+          <h4>Plus</h4>
+          <h4>£45 / Month</h4>
+          <span>Perfect For Most</span>
+          <hr/>
+          <ul class="unstyled">
+            <li>Up to 20GB Storage</li>
+            <li>Unlimited Clients</li>
+            <li>Unlimited Documents</li>
+            <li>Full Encryption</li>
+            <li>Guaranteed FCA Compliance</li>
+          </ul>
+          <button class="btn btn-primary">Choose Plan</button>
+        </div>
+        <div class="col-md-3 pricing-option">
+          <h4>Enterprise</h4>
+          <h4>£60 / Month</h4>
+          <span>For Large Organisations</span>
+          <hr/>
+          <ul class="unstyled">
+            <li>Up to 100GB Storage</li>
+            <li>Unlimited Clients</li>
+            <li>Unlimited Documents</li>
+            <li>Full Encryption</li>
+            <li>Guaranteed FCA Compliance</li>
+          </ul>
+          <button class="btn btn-primary">Choose Plan</button>
+        </div>
       </div>
-      <div class="col-md-3 pricing-option-emph">
-        <h4>Plus</h4>
-        <h4>£45 / Month</h4>
-        <span>Perfect For Most</span>
-        <hr/>
-        <ul class="unstyled">
-          <li>Up to 20GB Storage</li>
-          <li>Unlimited Clients</li>
-          <li>Unlimited Documents</li>
-          <li>Full Encryption</li>
-          <li>Guaranteed FCA Compliance</li>
-        </ul>
-        <button class="btn btn-primary">Choose Plan</button>
-      </div>
-      <div class="col-md-3 pricing-option">
-        <h4>Enterprise</h4>
-        <h4>£60 / Month</h4>
-        <span>For Large Organisations</span>
-        <hr/>
-        <ul class="unstyled">
-          <li>Up to 100GB Storage</li>
-          <li>Unlimited Clients</li>
-          <li>Unlimited Documents</li>
-          <li>Full Encryption</li>
-          <li>Guaranteed FCA Compliance</li>
-        </ul>
-        <button class="btn btn-primary">Choose Plan</button>
-      </div>
-    </div>
-
     </div><!--container -->
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="auditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Please enter your details for a free audit</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+              <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" name="name" id="inputName" placeholder="Enter your full name">
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Enter your email">
+              </div>
+              <div class="form-group">
+                <label for="inputPhone">Phone</label>
+                <input type="text" class="form-control" name="phone" id="inputPhone" placeholder="Enter your telephone number">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Get My FREE Audit</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
     <script src="//cdn.optimizely.com/js/338769085.js"></script>
   </body>
 </html>
