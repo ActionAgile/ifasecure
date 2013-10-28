@@ -242,6 +242,12 @@ module.exports = (grunt) ->
         options:
           format: "pretty"
 
+    karma:
+      unit:
+        configFile: "test/unit/client/karma.conf.coffee"
+        singleRun: true
+        browsers: ["Chrome"]
+
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-clean'
@@ -255,6 +261,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-aws-s3'
   grunt.loadNpmTasks 'grunt-cucumber'
   grunt.loadNpmTasks 'grunt-gint'
+  grunt.loadNpmTasks 'grunt-karma'
 
   grunt.registerTask 'build', [
     'clean'
