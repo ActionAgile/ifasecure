@@ -13,8 +13,18 @@ describe 'Main controller', ->
     dependencies =
       $scope: scope
 
+    ctrl = controller 'mainController', dependencies
+
   describe 'initializing', ->
     it 'Sets message on scope', (done) ->
-      ctrl = controller 'mainController', dependencies
       expect(scope.message).to.equal "This is a message from angular"
+      done()
+
+    it 'puts sendContactInfo() on the scope', (done) ->
+      expect(scope).to.have.property 'sendContactInfo'
+      done()
+
+  describe 'sendContactInfo()', (done) ->
+    it 'is a function', (done) ->
+      expect(scope.sendContactInfo).to.be.a 'function'
       done()
