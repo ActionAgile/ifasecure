@@ -1,7 +1,7 @@
 module.exports = ->
 
   @Given /^I am on the homepage$/, (callback) ->
-    @browser.get('http://localhost:9002').then ->
+    @browser.get('http://dev.ifasecure.co.uk:9002').then ->
       callback()
 
   @Then /^I should see a pricing grid$/, (callback) ->

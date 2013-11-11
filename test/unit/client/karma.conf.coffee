@@ -5,21 +5,28 @@
 module.exports = (config) ->
   config.set
     basePath: '../../../'
-    frameworks: ['sinon-chai']
+    frameworks: ['mocha', 'sinon-chai']
     files :[
-      {pattern: 'node_modules/karma-cucumberjs/vendor/cucumber-html.css', watched: false, included: false, served: true}
-      {pattern: 'test/unit/client/app.template', watched: false, included: false, served: true}
-      {pattern: 'test/unit/client/features/**/*.feature', watched: true, included: false, served: true}
-      {pattern: 'node_modules/karma-cucumberjs/lib/adapter.js', watched: false, included: true, served: true}
-      {pattern: 'test/unit/client/features/stepDefinitions/**/*.js', watched: true, included: true, served: true}
+      'bower_modules/jquery/jquery.js'
+      'bower_modules/angular/angular.js'
+      'bower_modules/angular-mocks/angular-mocks.js'
+      'test/unit/client/app.coffee'
+      'client/coffee/controllers/*.coffee'
+      'client/coffee/directives/*.coffee'
+      'client/coffee/services/*.coffee'
+      'client/coffee/filters/*.coffee'
+      'bin/client/js/views.js'
+      'test/unit/client/**/*.coffee'
     ]
     preprocessors:
       '**/*.coffee': 'coffee'
-    reporters = 'progress'
-    port: 9876
-    runnerPort = 9100
+    reporters = 'dots'
+    port: 8080
     colors: true
     logLevel: config.LOG_INFO
     autoWatch: false
-    browsers: ['Chrome']
+    browsers: ['PhantomJS']
     singleRun: false
+    plugins: [
+      'karma-mocha'
+    ]

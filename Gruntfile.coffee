@@ -227,7 +227,7 @@ module.exports = (grunt) ->
         livereload: true
       dev:
         files: ['client/**/*']
-        tasks: ['dev']
+        tasks: ['reloadDev']
       prod:
         files: ['client/**/*']
         tasks: ['prod']
@@ -246,7 +246,7 @@ module.exports = (grunt) ->
       unit:
         configFile: "test/unit/client/karma.conf.coffee"
         singleRun: true
-        browsers: ["Chrome"]
+        browsers: ["PhantomJS"]
 
   grunt.loadNpmTasks 'grunt-contrib-connect'
   grunt.loadNpmTasks 'grunt-contrib-less'
@@ -259,9 +259,9 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-compress'
   grunt.loadNpmTasks 'grunt-env'
   grunt.loadNpmTasks 'grunt-aws-s3'
-  grunt.loadNpmTasks 'grunt-cucumber'
   grunt.loadNpmTasks 'grunt-gint'
   grunt.loadNpmTasks 'grunt-karma'
+  grunt.loadNpmTasks 'grunt-cucumber'
 
   grunt.registerTask 'build', [
     'clean'
@@ -275,11 +275,6 @@ module.exports = (grunt) ->
     'copy:fonts'
   ]
  
-  grunt.registerTask 'server', [
-    'build'
-    'connect:server'
-  ]
-
   grunt.registerTask 'deployTest', [
     'buildTest'
     'env:test'
@@ -287,7 +282,7 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask 'test', [
-    'build'
+    'buildProd'
     'connect:testServer'
     'cucumberjs:e2e'
   ]
@@ -296,6 +291,10 @@ module.exports = (grunt) ->
     'buildDev'
     'connect:devServer'
     'watch:dev'
+  ]
+
+  grunt.registerTask 'reloadDev', [
+    'buildDev'
   ]
 
   grunt.registerTask 'prod', [
