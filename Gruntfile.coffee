@@ -145,6 +145,7 @@ module.exports = (grunt) ->
           'html5shiv/dist/html5shiv.js'
           'respond/respond.min.js'
           'requirejs/require.js'
+          'firebase/firebase.js'
         ]
         dest: 'temp/client/js/libs'                    
       scripts:
