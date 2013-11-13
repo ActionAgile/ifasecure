@@ -283,7 +283,8 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask 'test', [
-    'buildProd'
+    'buildTest'
+    'karma:unit'
     'connect:testServer'
     'cucumberjs:e2e'
   ]
