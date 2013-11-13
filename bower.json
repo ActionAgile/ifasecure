@@ -8,5 +8,8 @@
     "angular": "~1.0.8",
     "requirejs": "~2.1.9",
     "firebase": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.0"
   }
 }
